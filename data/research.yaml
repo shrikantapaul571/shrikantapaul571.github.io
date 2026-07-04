@@ -12,18 +12,3 @@
   type: Conference
   status: Accepted
   venue: Accepted at <strong>ICEFronT 2026</strong>, International Conference on Engineering Frontiers and Technology, MBSTU, Bangladesh.
-
-# ===== DUMMY TEST ENTRIES — delete the two below after testing =====
-- title: "DUMMY Journal Paper: Test Entry for Filter Verification"
-  year: 2025
-  type: Journal
-  authors: <strong>S. Paul</strong> and T. Est
-  status: Published
-  venue: <em>Dummy Journal of Testing</em>, vol. 1, no. 1, 2025, pp. 1–10.
-  doi: 10.0000/DUMMY.2025.0000001
-
-- title: "DUMMY Conference Paper: Another Year Test Entry"
-  year: 2024
-  type: Conference
-  status: Presented
-  venue: <em>2024 Dummy Conference on Placeholder Research (DCPR)</em>, Dhaka, Bangladesh, 2024.
