@@ -1,4 +1,4 @@
-baseURL = "https://shrikantapaul571.github.io/"
+baseURL = "https://spaul571.github.io/"
 locale = "en-us"
 title = "Shrikanta Paul | AI & ML Researcher"
 
@@ -18,7 +18,7 @@ disableKinds = ["taxonomy", "term", "rss"]
   description = "Shrikanta Paul, AI and Machine Learning Researcher. M.Sc. CSE student exploring Artificial Intelligence, Machine Learning and Deep Learning."
 
   [params.social]
-    github = "https://github.com/shrikantapaul571"
+    github = "https://github.com/spaul571"
     linkedin = "https://www.linkedin.com/in/spaul571/"
     facebook = "https://www.facebook.com/spaul571"
 

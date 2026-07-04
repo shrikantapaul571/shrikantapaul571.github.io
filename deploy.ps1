@@ -20,4 +20,4 @@ git add -A
 git commit -m "Deploy site $(Get-Date -Format 'yyyy-MM-dd HH:mm')" | Out-Null
 git push -f $remote gh-pages
 Set-Location $root
-Write-Host "Deployed to gh-pages -> https://shrikantapaul571.github.io/"
+Write-Host "Deployed to gh-pages -> https://spaul571.github.io/"
