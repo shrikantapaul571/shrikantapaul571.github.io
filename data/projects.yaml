@@ -1,0 +1,29 @@
+- name: SmartFarmX
+  tag: IoT • Smart Agriculture • May–Aug 2025
+  description: IoT-based smart agriculture platform monitoring remote farm fields without internet using LoRa communication, with real-time sensor data visualization and a responsive web interface.
+  link: https://smart-farm-x-web.vercel.app/
+  linkLabel: Live Demo
+
+- name: IPTV Watching Website
+  tag: Web App
+  description: A clean, fast, responsive IPTV streaming interface for accessing live TV channels through M3U links.
+  link: https://iptv-nine-mu.vercel.app/
+  linkLabel: Live Demo
+
+- name: NeonTech, Demo Company Website
+  tag: Web / UI-UX
+  description: A professional demo website for a tech company highlighting services, portfolio, contact page, and modern UI/UX.
+  link: https://neon-tech-lemon.vercel.app/
+  linkLabel: Live Demo
+
+- name: BookBin
+  tag: UI/UX • Marketplace • 2022
+  description: An online book exchange and marketplace supporting buying, selling and exchanging books, built from wireframes and clickable prototypes focused on user-friendly navigation.
+  link: https://book-bin.vercel.app/
+  linkLabel: Live Demo
+
+- name: Personal Website (Hugo)
+  tag: Web • Static Site • 2026
+  description: This responsive personal website built with the Hugo static site generator and hosted on GitHub Pages.
+  link: https://github.com/shrikantapaul571/shrikantapaul571.github.io
+  linkLabel: Source

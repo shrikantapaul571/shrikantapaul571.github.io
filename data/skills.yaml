@@ -1,0 +1,19 @@
+- group: Programming
+  icon: fa-solid fa-code
+  items: [C, Java, Python, HTML, CSS]
+
+- group: Artificial Intelligence & ML
+  icon: fa-solid fa-brain
+  items: [Machine Learning, Deep Learning, Research Paper Writing (LaTeX)]
+
+- group: Design Tools
+  icon: fa-solid fa-paint-brush
+  items: [Adobe XD, Adobe Photoshop, Adobe Illustrator]
+
+- group: Video Editing
+  icon: fa-solid fa-video
+  items: [Adobe Premiere Pro, Filmora]
+
+- group: Productivity
+  icon: fa-solid fa-briefcase
+  items: [Microsoft Word, Microsoft Excel, Microsoft PowerPoint]

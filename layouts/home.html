@@ -1,0 +1,201 @@
+﻿{{ define "main" }}
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <span class="badge"><span class="dot"></span> Open to research &amp; collaboration</span>
+    <h1>Hi, I'm <span class="highlight">{{ site.Params.name }}</span></h1>
+    <p class="roles">
+      <i class="fas fa-brain"></i> AI / ML Researcher &nbsp;
+      <i class="fas fa-network-wired"></i> Deep Learning &nbsp;
+      <i class="fas fa-chart-line"></i> Data Science
+    </p>
+    <p class="hero-affil"><i class="fas fa-graduation-cap"></i> {{ site.Params.affiliation }}</p>
+    <p class="hero-lead">{{ site.Params.tagline }}</p>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn"><i class="fas fa-arrow-right"></i> See My Work</a>
+      <a href="{{ site.Params.cvFile | relURL }}" download class="btn-ghost"><i class="fas fa-download"></i> Download CV</a>
+    </div>
+    <div class="social-links">
+      <a href="{{ site.Params.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="{{ site.Params.social.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="{{ site.Params.social.github }}" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="frame">
+      <img src="{{ "img/profile.png" | relURL }}" alt="{{ site.Params.name }}" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="section" id="about">
+  <span class="eyebrow">Get to know me</span>
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">Career objective, education &amp; activities</p>
+
+  <div class="about-intro">
+    {{ .Content }}
+  </div>
+
+  <h3 class="subhead"><i class="fas fa-graduation-cap"></i> Education</h3>
+  <div class="timeline">
+    {{ range hugo.Data.education }}
+    <div class="timeline-item">
+      <h4>{{ .degree }}</h4>
+      <span class="year">{{ .period }}</span>
+      <p><strong>{{ .institution }}</strong></p>
+      <p>{{ .detail }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ===== Experience ===== -->
+<section class="section" id="experience">
+  <span class="eyebrow">My journey</span>
+  <h2 class="section-title">Experience</h2>
+  <p class="section-sub">Research roles &amp; recognition</p>
+
+  <div class="timeline">
+    {{ range hugo.Data.experience }}
+    <div class="timeline-item">
+      <h4>{{ .title }}</h4>
+      <span class="year">{{ .period }}</span>
+      <p>{{ .organization }}</p>
+      <ul>
+        {{ range .points }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+
+  <h3 class="subhead"><i class="fas fa-award"></i> Achievements</h3>
+  <ul class="achievements">
+    {{ range hugo.Data.achievements }}
+    <li><strong>{{ .title }}</strong> — {{ .detail }} <span class="year">{{ .year }}</span></li>
+    {{ end }}
+  </ul>
+</section>
+
+<!-- ===== Research ===== -->
+<section class="section" id="research">
+  <span class="eyebrow">Academic work</span>
+  <h2 class="section-title">Research &amp; Publications</h2>
+  <p class="section-sub">Conference papers &amp; ongoing work</p>
+
+  <div class="cards-grid">
+    {{ range hugo.Data.research }}
+    <div class="card">
+      <span class="tag">{{ .status }}</span>
+      <h3>{{ .title }}</h3>
+      <p>{{ .venue | safeHTML }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ===== Portfolio ===== -->
+<section class="section" id="portfolio">
+  <span class="eyebrow">My work</span>
+  <h2 class="section-title">Portfolio</h2>
+  <p class="section-sub">Projects &amp; graphics design works</p>
+
+  <h3 class="subhead"><i class="fas fa-laptop-code"></i> Projects</h3>
+  <div class="cards-grid">
+    {{ range hugo.Data.projects }}
+    <div class="card">
+      <span class="tag">{{ .tag }}</span>
+      <h3>{{ .name }}</h3>
+      <p>{{ .description }}</p>
+      <div class="project-links">
+        <a href="{{ .link }}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> {{ .linkLabel }}</a>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+
+  <h3 class="subhead"><i class="fas fa-palette"></i> Graphics Design</h3>
+  <div class="cards-grid design-grid">
+    {{ range hugo.Data.designs }}
+    <div class="card design-card">
+      <h3><i class="fas fa-images"></i> {{ .name }}</h3>
+      <a href="{{ .link }}" target="_blank" rel="noopener">View Gallery <i class="fas fa-arrow-up-right-from-square"></i></a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ===== Skills ===== -->
+<section class="section" id="skills">
+  <span class="eyebrow">What I work with</span>
+  <h2 class="section-title">Skills</h2>
+  <p class="section-sub">Tools &amp; technologies</p>
+
+  {{ range hugo.Data.skills }}
+  <div class="skills-block">
+    <h3><i class="{{ .icon }}"></i> {{ .group }}</h3>
+    <div class="skills-grid">
+      {{ range .items }}
+      <div class="skill"><span>{{ . }}</span></div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</section>
+
+<!-- ===== Resume ===== -->
+<section class="section" id="resume">
+  <span class="eyebrow">My background</span>
+  <h2 class="section-title">Resume / CV</h2>
+  <p class="section-sub">Preview or download a copy</p>
+
+  <div class="resume-actions">
+    <a href="{{ site.Params.cvFile | relURL }}" download class="btn"><i class="fas fa-download"></i> Download CV</a>
+  </div>
+
+  <div class="resume-preview">
+    <img src="{{ "img/resume-page-1.png" | relURL }}" alt="Resume page 1" loading="lazy" />
+    <img src="{{ "img/resume-page-2.png" | relURL }}" alt="Resume page 2" loading="lazy" />
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="section" id="contact">
+  <span class="eyebrow">Let's talk</span>
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-sub">Have a question or want to work together?</p>
+
+  <div class="contact-info">
+    <p><i class="fas fa-location-dot"></i> {{ site.Params.location }}</p>
+    <p><i class="fas fa-phone"></i> {{ site.Params.phone }}</p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+  </div>
+
+  <form class="contact-form" action="https://formsubmit.co/{{ site.Params.email }}" method="POST">
+    <input type="hidden" name="_subject" value="New message from personal website" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="contact-social">
+    <h3>Or connect with me</h3>
+    <a href="{{ site.Params.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="{{ site.Params.social.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="{{ site.Params.social.github }}" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+  </div>
+</section>
+
+{{ end }}

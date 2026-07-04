@@ -1,0 +1,27 @@
+baseURL = "https://shrikantapaul571.github.io/"
+locale = "en-us"
+title = "Shrikanta Paul | AI & ML Researcher"
+
+enableEmoji = true
+disableKinds = ["taxonomy", "term", "rss"]
+
+[params]
+  name = "Shrikanta Paul"
+  role = "AI / ML Researcher"
+  tagline = "Passionate about Artificial Intelligence, Machine Learning and Deep Learning. I focus on simplifying complex technical concepts into practical, real-world solutions through hands-on research and experimentation."
+  affiliation = "M.Sc. in CSE & Research Assistant · Daffodil International University"
+  location = "Bijoypur, Cumilla Sadar South, Cumilla"
+  phone = "+880 1985-064618"
+  email = "paul15-4868@diu.edu.bd"
+  cvFile = "/files/Shrikanta_Paul_CV.pdf"
+  description = "Shrikanta Paul, AI and Machine Learning Researcher. M.Sc. CSE student exploring Artificial Intelligence, Machine Learning and Deep Learning."
+
+  [params.social]
+    github = "https://github.com/shrikantapaul571"
+    linkedin = "https://www.linkedin.com/in/spaul571/"
+    facebook = "https://www.facebook.com/spaul571"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

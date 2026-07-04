@@ -1,0 +1,9 @@
+public/
+resources/
+.hugo_build.lock
+
+# GitHub Actions workflow kept local: current gh OAuth token lacks the
+# `workflow` scope, so pushing it is rejected. To enable CI deploys, run
+# `gh auth refresh -h github.com -s workflow`, delete the two lines below,
+# commit and push, then switch Pages source to "GitHub Actions".
+.github/
