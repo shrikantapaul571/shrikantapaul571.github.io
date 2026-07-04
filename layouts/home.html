@@ -75,8 +75,13 @@
     {{ range hugo.Data.research }}
     <li class="pub">
       <p class="pub-title">{{ .title }}</p>
+      {{ with .authors }}<p class="pub-authors">{{ . | safeHTML }}</p>{{ end }}
       <p class="pub-venue">{{ .venue | safeHTML }}</p>
-      <span class="pub-status">{{ .status }}</span>
+      <p class="pub-meta">
+        <span class="pub-status">{{ .status }}</span>
+        {{ with .doi }}<span class="pub-doi">DOI: {{ . }}</span>{{ end }}
+        {{ with .link }}<a href="{{ . }}" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-arrow-up-right-from-square"></i> View Paper</a>{{ end }}
+      </p>
     </li>
     {{ end }}
   </ol>
