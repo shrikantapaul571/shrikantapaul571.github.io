@@ -71,20 +71,97 @@
 <!-- ===== Publications ===== -->
 <section class="section" id="publications">
   <h2 class="section-title">Publications</h2>
-  <ol class="pub-list">
-    {{ range hugo.Data.research }}
-    <li class="pub">
-      <p class="pub-title">{{ .title }}</p>
-      {{ with .authors }}<p class="pub-authors">{{ . | safeHTML }}</p>{{ end }}
-      <p class="pub-venue">{{ .venue | safeHTML }}</p>
-      <p class="pub-meta">
-        <span class="pub-status">{{ .status }}</span>
-        {{ with .doi }}<span class="pub-doi">DOI: {{ . }}</span>{{ end }}
-        {{ with .link }}<a href="{{ . }}" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-arrow-up-right-from-square"></i> View Paper</a>{{ end }}
-      </p>
-    </li>
+
+  {{ $pubs := hugo.Data.research }}
+  {{ $years := slice }}
+  {{ $types := slice }}
+  {{ range $pubs }}
+    {{ $years = $years | append (string (.year | default "Other")) }}
+    {{ $types = $types | append (.type | default "Other") }}
+  {{ end }}
+  {{ $years = sort ($years | uniq) "value" "desc" }}
+  {{ $types = sort ($types | uniq) }}
+
+  <div class="pub-filters">
+    <div class="filter-group" data-filter-key="type">
+      <span class="filter-label">Type:</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      {{ range $types }}
+      <button class="filter-btn" data-filter="{{ . }}">{{ . }}</button>
+      {{ end }}
+    </div>
+    <div class="filter-group" data-filter-key="year">
+      <span class="filter-label">Year:</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      {{ range $years }}
+      <button class="filter-btn" data-filter="{{ . }}">{{ . }}</button>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="pubs-wrap">
+    {{ range $y := $years }}
+    <div class="pub-year-group" data-year="{{ $y }}">
+      <h3 class="pub-year">{{ $y }} <span class="pub-count"></span></h3>
+      <ol class="pub-list">
+        {{ range $pubs }}
+        {{ if eq (string (.year | default "Other")) $y }}
+        <li class="pub" data-year="{{ $y }}" data-type="{{ .type | default "Other" }}">
+          <p class="pub-title">{{ .title }}</p>
+          {{ with .authors }}<p class="pub-authors">{{ . | safeHTML }}</p>{{ end }}
+          <p class="pub-venue">{{ .venue | safeHTML }}</p>
+          <p class="pub-meta">
+            <span class="pub-status">{{ .status }}</span>
+            {{ with .type }}<span class="pub-type">{{ . }}</span>{{ end }}
+            {{ with .doi }}<span class="pub-doi">DOI: {{ . }}</span>{{ end }}
+            {{ with .link }}<a href="{{ . }}" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-arrow-up-right-from-square"></i> View Paper</a>{{ end }}
+          </p>
+        </li>
+        {{ end }}
+        {{ end }}
+      </ol>
+    </div>
     {{ end }}
-  </ol>
+    <p class="pub-empty" hidden>No publications match the selected filters.</p>
+  </div>
+
+  <script>
+    (function () {
+      const state = { type: "all", year: "all" };
+      const groups = document.querySelectorAll(".pub-year-group");
+      const empty = document.querySelector(".pub-empty");
+
+      function apply() {
+        let total = 0;
+        groups.forEach(g => {
+          let visible = 0;
+          g.querySelectorAll(".pub").forEach(p => {
+            const show = (state.type === "all" || p.dataset.type === state.type) &&
+                         (state.year === "all" || p.dataset.year === state.year);
+            p.style.display = show ? "" : "none";
+            if (show) visible++;
+          });
+          g.querySelector(".pub-count").textContent = "(" + visible + ")";
+          g.style.display = visible ? "" : "none";
+          total += visible;
+        });
+        empty.hidden = total > 0;
+      }
+
+      document.querySelectorAll(".filter-group").forEach(group => {
+        const key = group.dataset.filterKey;
+        group.querySelectorAll(".filter-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            state[key] = btn.dataset.filter;
+            group.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b === btn));
+            apply();
+          });
+        });
+      });
+
+      apply();
+    })();
+  </script>
 </section>
 
 <!-- ===== Projects ===== -->

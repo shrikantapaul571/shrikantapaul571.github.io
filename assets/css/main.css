@@ -107,7 +107,32 @@ nav ul a:hover { color: var(--accent); text-decoration: none; }
 .edu-detail { color: var(--faint); font-size: 0.88rem; }
 
 /* ===== Publications ===== */
-.pub-list { list-style: none; counter-reset: pub; display: grid; gap: 18px; }
+.pub-filters { display: grid; gap: 10px; margin-bottom: 26px; }
+.filter-group { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.filter-label { color: var(--faint); font-size: 0.85rem; font-weight: 600; margin-right: 2px; }
+.filter-btn {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 999px;
+  padding: 4px 14px; font-family: inherit; font-size: 0.84rem; font-weight: 500;
+  color: var(--muted); cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.pubs-wrap { counter-reset: pub; display: grid; gap: 26px; }
+.pub-year {
+  font-size: 1.15rem; margin-bottom: 14px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.pub-count { color: var(--faint); font-family: var(--sans); font-size: 0.9rem; font-weight: 500; }
+.pub-type {
+  display: inline-block; font-size: 0.78rem; font-weight: 600;
+  color: var(--muted); background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 2px 11px; border-radius: 999px;
+}
+.pub-empty { color: var(--faint); }
+
+.pub-list { list-style: none; display: grid; gap: 18px; }
 .pub {
   counter-increment: pub;
   position: relative; padding: 18px 20px 18px 62px;

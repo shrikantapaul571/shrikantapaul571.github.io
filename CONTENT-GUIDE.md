@@ -45,6 +45,8 @@ Copy, paste, fill in. Indentation matters in YAML — keep it exactly as shown (
 
 ```yaml
 - title: Paper Title Here
+  year: 2026
+  type: Conference
   authors: A. Author, B. Author and <strong>S. Paul</strong>
   status: Published · IEEE Xplore
   venue: <em>Conference Name (ACRONYM)</em>, City, Country, 2026, pp. 1–6.
@@ -52,6 +54,8 @@ Copy, paste, fill in. Indentation matters in YAML — keep it exactly as shown (
   link: https://ieeexplore.ieee.org/document/XXXXXXX
 ```
 
+- `year` groups the paper under a year heading (with an automatic count) and powers the Year filter.
+- `type` powers the Type filter — use `Conference`, `Journal`, or any other label (e.g. `Book Chapter`, `Preprint`); filter buttons are generated automatically from whatever types exist.
 - `authors`, `doi`, `link` are optional — leave them out for accepted-but-unpublished papers.
 - `<strong>...</strong>` bolds your name; `<em>...</em>` italicises the venue.
 - Numbering `[1] [2] ...` is automatic.
